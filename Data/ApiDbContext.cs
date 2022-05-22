@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using dotnet6_webapi_jwt.Models;
 
 namespace dotnet6_webapi_jwt.Data;
 // {
@@ -17,8 +18,6 @@ namespace dotnet6_webapi_jwt.Data;
             : base(options)
         {
         }
-
-        // public virtual DbSet<Inventory> Inventory { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,5 +34,7 @@ namespace dotnet6_webapi_jwt.Data;
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<ItemData>? ItemData { get; set; }
     }
 // }
